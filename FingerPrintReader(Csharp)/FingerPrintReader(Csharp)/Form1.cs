@@ -15,6 +15,10 @@ namespace FingerPrintReader
         public Form1()
         {
             InitializeComponent();
+
+            visibleHideAll();
+            usersUC1.Visible = true;
+            usersUC1.Dock = DockStyle.Fill;
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -24,37 +28,36 @@ namespace FingerPrintReader
 
         private void btnFingerPrint_Click(object sender, EventArgs e)
         {
-            usersUC1.Visible = false;
+            visibleHideAll();
             fingerPrintViewerUC1.Visible = true;
             fingerPrintViewerUC1.Dock = DockStyle.Fill;
         }
 
         private void btnUsers_Click(object sender, EventArgs e)
         {
-            fingerPrintViewerUC1.Visible = false;
+            visibleHideAll();
             usersUC1.Visible = true;
             usersUC1.Dock = DockStyle.Fill;
         }
 
-        //private void panel1_VisibleChanged(object sender, EventArgs e)
-        //{
-        //    Console.WriteLine("hyy");
-        //    if (panel1.Visible == true)
-        //    {
-        //        Console.WriteLine("visible");
-        //    }
-        //}
+        private void btnAttandance_Click(object sender, EventArgs e)
+        {
+            visibleHideAll();
+            attendanceUC1.Visible = true;
+            attendanceUC1.Dock = DockStyle.Fill;
+        }
 
-        //private void button2_Click(object sender, EventArgs e)
-        //{
-        //    if (panel1.Visible == true)
-        //    {
-        //        panel1.Visible = false;
-        //    }
-        //    else
-        //    {
-        //        panel1.Visible = true;
-        //    }
-        //}
+        private void visibleHideAll()
+        {
+            fingerPrintViewerUC1.Visible = false;
+            usersUC1.Visible = false;
+            attendanceUC1.Visible = false;
+        }
+
+        private void btnSalary_Click(object sender, EventArgs e)
+        {
+            visibleHideAll();
+        }
+
     }
 }

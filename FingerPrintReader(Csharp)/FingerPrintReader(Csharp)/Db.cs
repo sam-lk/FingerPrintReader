@@ -2,19 +2,19 @@
 using System;
 using System.Data;
 using System.IO;
+using System.Windows.Forms;
 
 namespace FingerPrintReader
 {
     public static class Db
     {
-        static string dbPath = string.Empty;
+        static string dbPath = "Server=localhost;Port=3306;Database=testpayroll;Uid=root;Pwd=;";
         static string readMeText = string.Empty;
         //static string myQuery = string.Empty;
         static bool myresult = false;
         public static string errormsg = string.Empty;
-        public static MySqlConnection Con;
-        //static string datetimeNow = "";
-        //static int myUserID = ((MainWindow)Application.Current.MainWindow).UserID;
+        public static MySqlConnection Con, Con2;
+        static string exeDir = System.IO.Path.GetDirectoryName(Application.ExecutablePath);
 
         public static void ReadTextQuery()
         {
@@ -31,6 +31,9 @@ namespace FingerPrintReader
         {
             Con = new MySqlConnection(dbPath); // create connection with query..
             Con.Open();
+            Con2 = new MySqlConnection(dbPath); // create connection with query..
+            Con2.Open();
+            Console.WriteLine("Db connection open");
         }
 
         public static void Connection_Close()
@@ -88,6 +91,28 @@ namespace FingerPrintReader
             try
             {
                 using (MySqlCommand cmd = Con.CreateCommand())
+                {
+                    cmd.CommandType = CommandType.Text;
+
+                    cmd.CommandText = quary;
+                    cmd.ExecuteNonQuery();
+                    myresult = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                errormsg = ex.Message;
+                Console.WriteLine("db class- InsertData-  " + errormsg);
+            }
+            return myresult;
+        }
+
+        public static bool InsertData2(string quary)
+        {
+            myresult = false;
+            try
+            {
+                using (MySqlCommand cmd = Con2.CreateCommand())
                 {
                     cmd.CommandType = CommandType.Text;
 

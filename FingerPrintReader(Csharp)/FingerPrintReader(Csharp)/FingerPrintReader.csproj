@@ -69,10 +69,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Db.cs" />
-    <Compile Include="FingerPrintViewerUC.cs">
+    <Compile Include="UserControlUI\AttendanceUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="FingerPrintViewerUC.Designer.cs">
+    <Compile Include="UserControlUI\AttendanceUC.Designer.cs">
+      <DependentUpon>AttendanceUC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControlUI\FingerPrintViewerUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControlUI\FingerPrintViewerUC.Designer.cs">
       <DependentUpon>FingerPrintViewerUC.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
@@ -83,13 +89,16 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="UsersUC.cs">
+    <Compile Include="UserControlUI\UsersUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
-    <Compile Include="UsersUC.Designer.cs">
+    <Compile Include="UserControlUI\UsersUC.Designer.cs">
       <DependentUpon>UsersUC.cs</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="FingerPrintViewerUC.resx">
+    <EmbeddedResource Include="UserControlUI\AttendanceUC.resx">
+      <DependentUpon>AttendanceUC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControlUI\FingerPrintViewerUC.resx">
       <DependentUpon>FingerPrintViewerUC.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
@@ -105,7 +114,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="UsersUC.resx">
+    <EmbeddedResource Include="UserControlUI\UsersUC.resx">
       <DependentUpon>UsersUC.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
